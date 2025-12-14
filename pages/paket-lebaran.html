@@ -157,63 +157,116 @@
             opacity: 0.95;
         }
 
-        /* DAFTAR MOBIL */
-        .container {
+        /* TABEL MOBIL */
+        .table-container {
             max-width: 1200px;
             margin: -30px auto 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            overflow-x: auto;
             padding: 0 20px;
         }
 
-        .car-card {
+        .car-table {
+            width: 100%;
+            border-collapse: collapse;
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: none;
         }
 
-        .car-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
-
-        .car-image {
-            width: 100%;
-            height: 220px;
-            object-fit: contain;
-            background: #f8f9fa;
-            padding: 20px;
+        .car-table th,
+        .car-table td {
+            padding: 15px;
+            text-align: left;
             border-bottom: 1px solid #eee;
         }
 
-        .car-info {
-            padding: 20px;
+        .car-table th {
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+            text-align: center;
         }
 
-        .car-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 8px;
+        .car-table tr:nth-child(even) {
+            background: #f8f9fa;
         }
 
-        .car-price {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #e74c3c;
-            margin: 12px 0;
+        .car-table tr:hover {
+            background: #e3f2fd;
         }
 
-        .car-duration {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            text-align: right;
-            margin-top: 8px;
-            font-weight: 500;
+        .table-car-image {
+            width: 100px;
+            height: 60px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .car-table .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .car-table .btn-telepon {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .car-table .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .car-table .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .car-table td {
+            vertical-align: middle;
+        }
+
+        .car-table td:first-child,
+        .car-table th:first-child {
+            text-align: center;
+            width: 50px;
+        }
+
+        .car-table td:nth-child(3),
+        .car-table th:nth-child(3) {
+            text-align: center;
+            width: 120px;
+        }
+
+        .car-table td:nth-child(4),
+        .car-table th:nth-child(4) {
+            text-align: center;
+            width: 120px;
+        }
+
+        .car-table td:nth-child(5),
+        .car-table th:nth-child(5) {
+            text-align: center;
+            width: 80px;
+        }
+
+        .car-table td:last-child,
+        .car-table th:last-child {
+            text-align: center;
+            width: 180px;
         }
 
         .buttons {
@@ -465,8 +518,31 @@
     </p>
 </div>
 
-<!-- DAFTAR MOBIL -->
-<div class="container">
+<!-- TABEL MOBIL -->
+<div class="table-container">
+    <table class="car-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Mobil</th>
+                <th>Gambar</th>
+                <th>Harga</th>
+                <th>Durasi</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Datsun Mt</td>
+                <td><img src="../Images/1.DatsunMt.png" alt="Datsun Mt" class="table-car-image"></td>
+                <td>Rp. 425.000</td>
+                <td>24 Jam</td>
+                <td>
+                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+                </td>
+            </tr>
 
     <!-- 1. Datsun Mt -->
     <div class="car-card">
@@ -482,89 +558,75 @@
         </div>
     </div>
 
-    <!-- 2. Ayla Mt -->
-    <div class="car-card">
-        <img src="../Images/2.AylaMt.png" alt="Ayla Mt" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Ayla Mt</div>
-            <div class="car-price">Rp. 425.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 3. Ayla At -->
-    <div class="car-card">
-        <img src="../Images/3.AylaAt.png" alt="Ayla At" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Ayla At</div>
-            <div class="car-price">Rp. 475.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 4. Calya Mt -->
-    <div class="car-card">
-        <img src="../Images/4.CalyaMt.png" alt="Calya Mt" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Calya Mt</div>
-            <div class="car-price">Rp. 425.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 5. Calya At -->
-    <div class="car-card">
-        <img src="../Images/5.CalyaAt.png" alt="Calya At" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Calya At</div>
-            <div class="car-price">Rp. 475.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 6. Avanza Mt -->
-    <div class="car-card">
-        <img src="../Images/6.AvanzaMt.png" alt="Avanza Mt" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Avanza Mt</div>
-            <div class="car-price">Rp. 475.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 7. Avanza At -->
-    <div class="car-card">
-        <img src="../Images/7.AvanzaAt.png" alt="Avanza At" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Avanza At</div>
-            <div class="car-price">Rp. 525.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
+                <tr>
+                <td>2</td>
+                <td>Ayla Mt</td>
+                <td><img src="../Images/2.AylaMt.png" alt="Ayla Mt" class="table-car-image"></td>
+                <td>Rp. 425.000</td>
+                <td>24 Jam</td>
+                <td>
+                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+                </td>
+            </tr>
+                        <tr>
+                <td>3</td>
+                <td>Ayla At</td>
+                <td><img src="../Images/3.AylaAt.png" alt="Ayla At" class="table-car-image"></td>
+                <td>Rp. 475.000</td>
+                <td>24 Jam</td>
+                <td>
+                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Calya Mt</td>
+                <td><img src="../Images/4.CalyaMt.png" alt="Calya Mt" class="table-car-image"></td>
+                <td>Rp. 425.000</td>
+                <td>24 Jam</td>
+                <td>
+                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Calya At</td>
+                <td><img src="../Images/5.CalyaAt.png" alt="Calya At" class="table-car-image"></td>
+                <td>Rp. 475.000</td>
+                <td>24 Jam</td>
+                <td>
+                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Avanza Mt</td>
+                <td><img src="../Images/6.AvanzaMt.png" alt="Avanza Mt" class="table-car-image"></td>
+                <td>Rp. 475.000</td>
+                <td>24 Jam</td>
+                <td>
+                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Avanza At</td>
+                <td><img src="../Images/7.AvanzaAt.png" alt="Avanza At" class="table-car-image"></td>
+                <td>Rp. 525.000</td>
+                <td>24 Jam</td>
+                <td>
+                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
     <!-- 8. Brio -->
     <div class="car-card">
