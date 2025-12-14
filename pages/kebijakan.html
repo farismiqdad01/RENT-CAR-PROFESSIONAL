@@ -494,5 +494,45 @@
     <p>Website ini dibuat untuk kemudahan pemesanan rental mobil di Medan.</p>
 </div>
 
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Fungsi untuk menandai menu aktif
+    document.addEventListener('DOMContentLoaded', function() {
+        // Dapatkan nama file halaman saat ini
+        const path = window.location.pathname;
+        const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+        
+        const navLinks = document.querySelectorAll('.navbar-menu a');
+        
+        navLinks.forEach(link => {
+            // Hapus class btn-kebijakan dari semua link terlebih dahulu
+            link.classList.remove('btn-kebijakan');
+            
+            // Dapatkan nama file dari href link
+            const linkHref = link.getAttribute('href');
+            const linkPath = linkHref.substring(linkHref.lastIndexOf('/') + 1);
+            
+            // Jika link adalah kebijakan.html, tambahkan class btn-kebijakan secara permanen
+            if (linkPath === 'kebijakan.html') {
+                link.classList.add('btn-kebijakan');
+            }
+            
+            // Tandai link aktif berdasarkan halaman saat ini
+            if (linkPath === currentPage || 
+                (currentPage === 'index.html' && linkPath === '') ||
+                (currentPage === '' && linkPath === 'index.html')) {
+                // Untuk halaman selain kebijakan, tambahkan class btn-kebijakan agar menjadi highlight biru
+                if (!link.classList.contains('btn-kebijakan')) {
+                    link.classList.add('btn-kebijakan');
+                }
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
