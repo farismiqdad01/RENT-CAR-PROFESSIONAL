@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Mobil Medan - Rent Car Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe6cc, #ff9999);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-logo img {
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .navbar-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .navbar-menu a:hover {
+            background: #f5f5f5;
+        }
+
+        .btn-kebijakan {
+            background: white;
+            color: #333;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-kebijakan:hover {
+            background: #f0f0f0;
+        }
+
+        /* HEADER DESKRIPSI */
+        .header {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .header h2 {
+            font-size: 2rem;
+            color: #555;
+            margin: 15px 0;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* DAFTAR MOBIL */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .car-card {
+            background: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #f5f5f5;
+            padding: 15px;
+        }
+
+        .car-info {
+            padding: 15px;
+        }
+
+        .car-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 10px 0;
+        }
+
+        .car-duration {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            transition: background-color 0.2s;
+        }
+
+        .btn-telepon {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* FOOTER INFORMASI */
+        .footer {
+            max-width: 1200px;
+            margin: 40px auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .footer-section {
+            padding: 15px;
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 5px;
+        }
+
+        .footer-text {
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .footer-text ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .footer-text li {
+            margin-bottom: 5px;
+        }
+
+        .statistik {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .statistik-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4caf50;
+            text-align: center;
+            background: #e8f5e8;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .statistik-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .statistik-icon {
+            margin-right: 5px;
+            color: #4caf50;
+        }
+
+        /* FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) */
+        .footer-bottom {
+            background: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid #ddd;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .social-icons {
+            margin: 15px 0;
+        }
+
+        .social-icons a {
+            margin: 0 8px;
+            font-size: 1.2rem;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.8;
+        }
+
+        /* WHATSAPP FLOATING BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float i {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            .header h2 {
+                font-size: 1.6rem;
+            }
+            .container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .footer {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                padding: 15px 0;
+            }
+        }
+    </style>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="navbar-logo">
+        <!-- Ganti src dengan path logo Anda -->
+        <img src="Images/logo.png" alt="Logo RCP">
+        <div class="navbar-title">RENT CAR PROFESSIONAL</div>
+    </div>
+    <div class="navbar-menu">
+        <a href="#beranda">Beranda</a>
+        <a href="#harga-all-in">Harga All-In</a>
+        <a href="#paket-lebaran">Paket Lebaran</a>
+        <a href="#paket-natal">Paket Natal & Tahun Baru</a>
+        <a href="#kebijakan" class="btn-kebijakan">Kebijakan</a>
+    </div>
+</div>
+
+<!-- HEADER DESKRIPSI -->
+<div class="header">
+    <h1>Rental Mobil Medan, Sewa Mobil Medan, Rent Car Medan</h1>
+    <h2>RENT CAR PROFESSIONAL</h2>
+    <p>
+        RENT CAR PROFESSIONAL adalah jasa penyewaan mobil terpercaya di kota Medan, berkualitas dengan harga terjangkau.
+        Mobil terawat baik, supir ramah dan berpengalaman, serta layanan yang responsif selalu mengutamakan kenyamanan dan keamanan penumpangnya.
+        Anda bisa gunakan jasa sewa mobil kami untuk jalan-jalan keliling kota Medan (City Tour), Perjalanan Dinas, Tamasya/Wisata dan Acara Keluarga.
+    </p>
+</div>
+
+<!-- DAFTAR MOBIL -->
+<div class="container">
+
+    <!-- 1. Datsun Mt -->
+    <div class="car-card">
+        <img src="Images/1.DatsunMt.png" alt="Datsun Mt" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Datsun Mt</div>
+            <div class="car-price">Rp. 450.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 2. Ayla Mt -->
+    <div class="car-card">
+        <img src="Images/2.AylaMt.png" alt="Ayla Mt" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Ayla Mt</div>
+            <div class="car-price">Rp. 450.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 3. Ayla At -->
+    <div class="car-card">
+        <img src="Images/3.AylaAt.png" alt="Ayla At" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Ayla At</div>
+            <div class="car-price">Rp. 500.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 4. Calya Mt -->
+    <div class="car-card">
+        <img src="Images/4.CalyaMt.png" alt="Calya Mt" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Calya Mt</div>
+            <div class="car-price">Rp. 450.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 5. Calya At -->
+    <div class="car-card">
+        <img src="Images/5.CalyaAt.png" alt="Calya At" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Calya At</div>
+            <div class="car-price">Rp. 500.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 6. Avanza Mt -->
+    <div class="car-card">
+        <img src="Images/6.AvanzaMt.png" alt="Avanza Mt" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Avanza Mt</div>
+            <div class="car-price">Rp. 500.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 7. Avanza At -->
+    <div class="car-card">
+        <img src="Images/7.AvanzaAt.png" alt="Avanza At" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Avanza At</div>
+            <div class="car-price">Rp. 550.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 8. Brio -->
+    <div class="car-card">
+        <img src="Images/9.Brio.png" alt="Brio" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Brio</div>
+            <div class="car-price">Rp. 400.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 9. Wuling Mt -->
+    <div class="car-card">
+        <img src="Images/10.WulingMt.png" alt="Wuling Mt" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Wuling Mt</div>
+            <div class="car-price">Rp. 450.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 10. Avanza -->
+    <div class="car-card">
+        <img src="Images/12.Avanza.png" alt="Avanza" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Avanza</div>
+            <div class="car-price">Rp. 500.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 11. Xenia -->
+    <div class="car-card">
+        <img src="Images/13.XeniaMt.png" alt="Xenia" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Xenia</div>
+            <div class="car-price">Rp. 450.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 12. Avanza At (versi lain) -->
+    <div class="car-card">
+        <img src="Images/15.AvanzaAt.png" alt="Avanza At" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Avanza At</div>
+            <div class="car-price">Rp. 550.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 13. Xenia At -->
+    <div class="car-card">
+        <img src="Images/16.XeniaAt.png" alt="Xenia At" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Xenia At</div>
+            <div class="car-price">Rp. 500.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 14. Wuling Cortez 2022 At -->
+    <div class="car-card">
+        <img src="Images/17.WulingCortez2022At.png" alt="Wuling Cortez 2022 At" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Wuling Cortez 2022 At</div>
+            <div class="car-price">Rp. 600.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 15. Livina -->
+    <div class="car-card">
+        <img src="Images/18.Livina.png" alt="Livina" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Livina</div>
+            <div class="car-price">Rp. 500.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 16. Xpander -->
+    <div class="car-card">
+        <img src="Images/19.Xpander.png" alt="Xpander" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Xpander</div>
+            <div class="car-price">Rp. 550.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 17. Innova Reborn -->
+    <div class="car-card">
+        <img src="Images/20.InnovaReborn.png" alt="Innova Reborn" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Innova Reborn</div>
+            <div class="car-price">Rp. 650.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 18. Innova Reborn (versi lain) -->
+    <div class="car-card">
+        <img src="Images/21.InnovaReborn.png" alt="Innova Reborn" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Innova Reborn</div>
+            <div class="car-price">Rp. 650.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 19. Pajero -->
+    <div class="car-card">
+        <img src="Images/22.Pajero.png" alt="Pajero" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Pajero</div>
+            <div class="car-price">Rp. 700.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+    <!-- 20. Fortuner -->
+    <div class="car-card">
+        <img src="Images/23.Fortuner.png" alt="Fortuner" class="car-image">
+        <div class="car-info">
+            <div class="car-name">Fortuner</div>
+            <div class="car-price">Rp. 800.000</div>
+            <div class="buttons">
+                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+            <div class="car-duration">Durasi 24 Jam</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER INFORMASI -->
+<div class="footer">
+
+    <!-- CATATAN -->
+    <div class="footer-section">
+        <h3 class="footer-title">Catatan</h3>
+        <div class="footer-text">
+            <ul>
+                <li><strong>Mt</strong> : manual.</li>
+                <li><strong>At</strong> : automatic.</li>
+                <li>Jika perlu jasa driver tambahan <strong>200k per hari</strong>.</li>
+                <li>Biaya overtime <strong>10% / jam</strong> dari nilai sewa harian.</li>
+                <li>Perjalanan luar kota tidak ada tambahan (Tapi ada minimal jarak dan waktu).</li>
+                <li>Bisa lepas kunci.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ALAMAT -->
+    <div class="footer-section">
+        <h3 class="footer-title">Alamat</h3>
+        <div class="footer-text">
+            Jl. Eka Warni No.46-44 (Belakang Mie Sop Aura),<br>
+            Gedung Johor, Kec. Medan Johor, Kota Medan, Sumatera Utara 20147, INDONESIA.<br><br>
+            <strong>Mobile:</strong> 082386318333<br>
+            <strong>e-mail:</strong> rcpmedan@gmail.com
+        </div>
+    </div>
+
+    <!-- STATISTIK -->
+    <div class="footer-section">
+        <h3 class="footer-title">Statistik</h3>
+        <div class="statistik">
+            <div class="statistik-number">090420</div>
+            <div class="statistik-item">
+                <span class="statistik-icon">👥</span>
+                <span>Visitors today : 80</span>
+            </div>
+            <div class="statistik-item">
+                <span class="statistik-icon">🌐</span>
+                <span>Total visitors : 65673</span>
+            </div>
+            <div class="statistik-item">
+                <span class="statistik-icon">🎯</span>
+                <span>Hits today : 128</span>
+            </div>
+            <div class="statistik-item">
+                <span class="statistik-icon">📈</span>
+                <span>Total Hits : 90420</span>
+            </div>
+            <div class="statistik-item">
+                <span class="statistik-icon">🟢</span>
+                <span>Visitors Online: 1</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) -->
+<div class="footer-bottom">
+    <p><strong>Ikuti kami:</strong></p>
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>© 2023 - 2024 | <a href="https://rentcarprofessional.com" style="color:#555; text-decoration:underline;">https://rentcarprofessional.com</a></p>
+</div>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
