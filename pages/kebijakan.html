@@ -13,21 +13,25 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ffe6cc, #ff9999);
-            padding: 20px;
+            background: #f8f9fa;
+            padding: 0;
             min-height: 100vh;
+            color: #333;
         }
 
         /* NAVBAR */
         .navbar {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px 20px;
+            background: #ffffff;
+            padding: 15px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .navbar-logo {
@@ -39,18 +43,20 @@
         .navbar-logo img {
             width: 60px;
             height: auto;
-            border-radius: 50%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .navbar-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: 0.5px;
         }
 
         .navbar-menu {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
         }
 
@@ -58,28 +64,49 @@
             text-decoration: none;
             color: #555;
             font-weight: 500;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.2s;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .navbar-menu a:hover {
-            background: #f5f5f5;
+            color: #3498db;
+            background: #f8f9fa;
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-menu a:hover::after {
+            width: 70%;
         }
 
         .btn-kebijakan {
-            background: white;
-            color: #333;
-            border: 1px solid #ddd;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: bold;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
             text-decoration: none;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
         }
 
         .btn-kebijakan:hover {
-            background: #f0f0f0;
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
         }
 
         /* HEADER DESKRIPSI */
@@ -87,49 +114,52 @@
             max-width: 1200px;
             margin: 0 auto 30px;
             text-align: center;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
         .header h1 {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
             line-height: 1.3;
+            font-weight: 600;
         }
 
         .header h2 {
-            font-size: 2rem;
-            color: #555;
-            margin: 15px 0;
+            font-size: 2.5rem;
+            margin: 20px 0;
             letter-spacing: 2px;
-            font-weight: bold;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .header p {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.6;
-            max-width: 800px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 900px;
             margin: 0 auto;
+            opacity: 0.95;
         }
 
         /* ISI KEBIJAKAN */
         .container {
             max-width: 1200px;
-            margin: 0 auto 40px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin: -30px auto 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border: none;
         }
 
         .kebijakan-section {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
         }
 
         .kebijakan-section:last-child {
@@ -137,36 +167,47 @@
         }
 
         .kebijakan-title {
-            font-size: 1.4rem;
-            color: #d32f2f;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+            display: inline-block;
         }
 
         .kebijakan-content {
-            line-height: 1.6;
+            line-height: 1.7;
             color: #555;
+            font-size: 1rem;
+        }
+
+        .kebijakan-content p {
+            margin-bottom: 12px;
         }
 
         .kebijakan-content ul {
-            padding-left: 20px;
-            margin: 10px 0;
+            padding-left: 25px;
+            margin: 15px 0;
         }
 
         .kebijakan-content li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
         /* FOOTER INFORMASI */
         .footer {
             max-width: 1200px;
-            margin: 40px auto 40px;
+            margin: 40px auto 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
         }
 
         .footer-section {
@@ -174,18 +215,19 @@
         }
 
         .footer-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #d32f2f;
-            padding-bottom: 5px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
         }
 
         .footer-text {
-            line-height: 1.6;
+            line-height: 1.7;
             color: #555;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .footer-text ul {
@@ -194,54 +236,56 @@
         }
 
         .footer-text li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            padding-left: 10px;
         }
 
         .statistik {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #4caf50;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
         }
 
         .statistik-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #4caf50;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #27ae60;
             text-align: center;
-            background: #e8f5e8;
-            padding: 5px;
-            border-radius: 5px;
-            margin: 10px 0;
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 12px 0;
         }
 
         .statistik-item {
             display: flex;
             justify-content: space-between;
-            margin: 8px 0;
-            font-size: 0.9rem;
+            margin: 10px 0;
+            font-size: 1rem;
+            padding: 5px 0;
         }
 
         .statistik-icon {
-            margin-right: 5px;
-            color: #4caf50;
+            margin-right: 8px;
+            color: #27ae60;
         }
 
         /* FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) */
         .footer-bottom {
-            background: rgba(255, 255, 255, 0.8);
-            border-top: 1px solid #ddd;
-            padding: 20px 0;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 30px 0;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 0;
             position: relative;
             z-index: 10;
         }
 
         .footer-bottom p {
-            font-size: 0.9rem;
-            color: #555;
-            margin: 5px 0;
+            font-size: 0.95rem;
+            color: #bdc3c7;
+            margin: 8px 0;
         }
 
         .social-icons {
@@ -249,39 +293,90 @@
         }
 
         .social-icons a {
-            margin: 0 8px;
-            font-size: 1.2rem;
-            color: #333;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            color: #3498db;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .social-icons a:hover {
-            opacity: 0.8;
+            color: #ecf0f1;
+            transform: translateY(-3px);
         }
-        
+
+        /* WHATSAPP FLOATING BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .whatsapp-float i {
+            font-size: 1.8rem;
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 gap: 15px;
+                padding: 15px 20px;
             }
             .navbar-menu {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 10px;
+            }
+            .navbar-menu a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .header {
+                padding: 40px 20px;
             }
             .header h1 {
-                font-size: 1.4rem;
+                font-size: 1.8rem;
             }
             .header h2 {
-                font-size: 1.6rem;
+                font-size: 2rem;
             }
             .container {
-                padding: 20px;
+                padding: 30px 20px;
+                margin: -20px auto 40px;
             }
             .footer {
                 grid-template-columns: 1fr;
+                padding: 30px 20px;
             }
             .footer-bottom {
-                padding: 15px 0;
+                padding: 25px 0;
+            }
+            .social-icons a {
+                margin: 0 8px;
+                font-size: 1.3rem;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
             }
         }
     </style>
@@ -318,61 +413,32 @@
 <!-- ISI KEBIJAKAN -->
 <div class="container">
     <div class="kebijakan-section">
-        <h3 class="kebijakan-title">Ketentuan Umum</h3>
+        <h3 class="kebijakan-title">Kebijakan Penggunaan Umum</h3>
         <div class="kebijakan-content">
-            <p>1. Penyewa wajib menunjukkan identitas asli (KTP/SIM) sebagai jaminan saat pengambilan kendaraan.</p>
-            <p>2. Uang muka (DP) minimal 50% dari total biaya sewa harus dibayarkan saat pemesanan.</p>
-            <p>3. Pelunasan dilakukan sebelum pengambilan kendaraan.</p>
-            <p>4. Penyewa bertanggung jawab penuh atas keselamatan kendaraan selama masa sewa.</p>
-            <p>5. Dilarang membawa kendaraan keluar wilayah Medan tanpa izin tertulis dari pihak kami.</p>
+            <p><strong>1. Harga Paket:</strong> Harga paket belum termasuk uang makan supir, pajak yang berlaku, bahan bakar, toll, parkir dan tiket wisata.</p>
+            <p><strong>2. Pemakaian Dalam Kota:</strong> Pemakaian Dalam Kota meliputi seluruh wilayah administrasi pemerintahan kota Medan kecuali batas terluar kota Binjai dan Tanjung Morawa serta Pancur Batu.</p>
+            <p><strong>3. Surat Order Kendaraan:</strong> Penyewa wajib mengisi dan menandatangani surat order kendaraan (timesheet) yang diserahkan oleh supir.</p>
+            <p><strong>4. Penggunaan Luar Kota:</strong> Untuk penggunaan keluar kota dan bermalam, penyewa harus mengkonfirmasikan terlebih dahulu ke RENT CAR PROFESSIONAL dan akan dikenai biaya dengan tarif sesuai tujuan.</p>
+            <p><strong>5. Tanggung Jawab Barang:</strong> Pihak RENT CAR PROFESSIONAL tidak bertanggung jawab atas kehilangan dan kerusakan barang customer saat perjalanan.</p>
+            <p><strong>6. Ganti Kendaraan:</strong> Dalam kondisi tertentu, pihak RENT CAR PROFESSIONAL dapat mengganti kendaraan yang telah dipesan dengan kendaraan yang sekelas atau diatasnya tanpa pemberitahuan terlebih dahulu.</p>
+            <p><strong>7. Perubahan Jadwal:</strong> Jika ada perubahan jadwal dan lokasi penjemputan harus menginformasikan sebelumnya ke pihak RENT CAR PROFESSIONAL.</p>
         </div>
     </div>
 
     <div class="kebijakan-section">
-        <h3 class="kebijakan-title">Waktu Pengambilan & Pengembalian</h3>
+        <h3 class="kebijakan-title">Kebijakan Lembur</h3>
         <div class="kebijakan-content">
-            <p>1. Waktu pengambilan kendaraan disesuaikan dengan kesepakatan, maksimal pukul 22.00 WIB.</p>
-            <p>2. Pengembalian kendaraan harus dilakukan tepat waktu sesuai jadwal yang disepakati.</p>
-            <p>3. Keterlambatan pengembalian dikenakan biaya tambahan sebesar 10% dari tarif sewa per jam.</p>
-            <p>4. Apabila terjadi keterlambatan lebih dari 6 jam, akan dikenakan biaya sewa harian penuh.</p>
+            <p><strong>1. Paket 24 Jam:</strong> Paket 24 jam tidak melebihi perhitungan. Apabila lebih akan dikenakan hitungan overtime.</p>
+            <p><strong>2. Biaya Overtime:</strong> Biaya penambahan jam pemakaian (over time) akan dikenakan 10% / jam dari nilai sewa harian dan akan di bayarkan langsung di tempat pada saat pemakaian mobil selesai.</p>
+            <p><strong>3. Pembayaran Overtime:</strong> Biaya overtime diserahkan kepada supir RENT CAR PROFESSIONAL sesuai dengan jumlah pemakaian.</p>
         </div>
     </div>
 
     <div class="kebijakan-section">
-        <h3 class="kebijakan-title">Pembatalan & Perubahan Jadwal</h3>
+        <h3 class="kebijakan-title">Kebijakan Lembur Khusus BUS MEDIUM 24 SEAT</h3>
         <div class="kebijakan-content">
-            <p>1. Pembatalan lebih dari 3x24 jam sebelum jadwal pengambilan, DP dikembalikan 100%.</p>
-            <p>2. Pembatalan antara 2x24 jam hingga 24 jam sebelum jadwal, DP dikembalikan 50%.</p>
-            <p>3. Pembatalan kurang dari 24 jam sebelum jadwal, DP hangus.</p>
-            <p>4. Perubahan jadwal diperkenankan maksimal 2 kali dan harus disepakati oleh kedua belah pihak.</p>
-        </div>
-    </div>
-
-    <div class="kebijakan-section">
-        <h3 class="kebijakan-title">Kerusakan & Kehilangan</h3>
-        <div class="kebijakan-content">
-            <p>1. Penyewa bertanggung jawab atas segala kerusakan yang terjadi pada kendaraan selama masa sewa.</p>
-            <p>2. Denda kerusakan disesuaikan dengan tingkat kerusakan dan biaya perbaikan sebenarnya.</p>
-            <p>3. Dalam hal terjadi kehilangan kendaraan, penyewa wajib mengganti sesuai nilai pasar kendaraan tersebut.</p>
-            <p>4. Apabila terjadi kecelakaan, penyewa wajib memberitahu pihak kami dalam waktu maksimal 1 jam.</p>
-        </div>
-    </div>
-
-    <div class="kebijakan-section">
-        <h3 class="kebijakan-title">Layanan Supir</h3>
-        <div class="kebijakan-content">
-            <p>1. Supir kami berpengalaman dan menguasai wilayah Medan serta sekitarnya.</p>
-            <p>2. Supir siap melayani selama 10 jam/hari (06.00 - 16.00), untuk waktu tambahan dikenakan biaya.</p>
-            <p>3. Dilarang keras memberikan makanan/minuman beralkohol atau berbau menyengat kepada supir.</p>
-            <p>4. Penyewa bertanggung jawab atas keselamatan supir selama masa pelayanan.</p>
-        </div>
-    </div>
-
-    <div class="kebijakan-section">
-        <h3 class="kebijakan-title">Kebijakan Privasi</h3>
-        <div class="kebijakan-content">
-            <p>Data pribadi pelanggan kami jamin kerahasiaannya dan hanya digunakan untuk keperluan pelayanan rental mobil.</p>
-            <p>Kami tidak akan menjual, menyewakan, atau membagikan informasi pribadi pelanggan kepada pihak ketiga.</p>
+            <p><strong>1. Makan Supir dan Kondektur:</strong> Makan supir dan kondektur Rp. 100.000 untuk dalam kota.</p>
+            <p><strong>2. Biaya Overtime Supir dan Kondektur:</strong> Biaya overtime supir dan kondektur Rp. 50.000 / jam.</p>
         </div>
     </div>
 </div>
