@@ -75,6 +75,18 @@
             background: #f8f9fa;
         }
 
+        .navbar-menu a.active {
+            background: #3498db;
+            color: white !important;
+            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .navbar-menu a.active:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+        }
+
         .navbar-menu a::after {
             content: '';
             position: absolute;
@@ -435,11 +447,11 @@
         <div class="navbar-title">RENT CAR PROFESSIONAL</div>
     </div>
     <div class="navbar-menu">
-        <a href="../index.html">Beranda</a>
-        <a href="harga-all-in.html">Harga All-In</a>
-        <a href="paket-lebaran.html">Paket Lebaran</a>
-        <a href="paket-natal.html">Paket Natal & Tahun Baru</a>
-        <a href="kebijakan.html" class="btn-kebijakan">Kebijakan</a>
+        <a href="../index.html" class="nav-link">Beranda</a>
+        <a href="harga-all-in.html" class="nav-link">Harga All-In</a>
+        <a href="paket-lebaran.html" class="nav-link">Paket Lebaran</a>
+        <a href="paket-natal.html" class="nav-link">Paket Natal & Tahun Baru</a>
+        <a href="kebijakan.html" class="nav-link">Kebijakan</a>
     </div>
 </div>
 
@@ -778,26 +790,18 @@
         const navLinks = document.querySelectorAll('.navbar-menu a');
         
         navLinks.forEach(link => {
-            // Hapus class btn-kebijakan dari semua link terlebih dahulu
-            link.classList.remove('btn-kebijakan');
-            
             // Dapatkan nama file dari href link
             const linkHref = link.getAttribute('href');
             const linkPath = linkHref.substring(linkHref.lastIndexOf('/') + 1);
             
-            // Jika link adalah kebijakan.html, tambahkan class btn-kebijakan secara permanen
-            if (linkPath === 'kebijakan.html') {
-                link.classList.add('btn-kebijakan');
-            }
+            // Hapus class active dari semua link
+            link.classList.remove('active');
             
             // Tandai link aktif berdasarkan halaman saat ini
             if (linkPath === currentPage || 
                 (currentPage === 'index.html' && linkPath === '') ||
                 (currentPage === '' && linkPath === 'index.html')) {
-                // Untuk halaman selain kebijakan, tambahkan class btn-kebijakan agar menjadi highlight biru
-                if (!link.classList.contains('btn-kebijakan')) {
-                    link.classList.add('btn-kebijakan');
-                }
+                link.classList.add('active');
             }
         });
     });
