@@ -611,6 +611,56 @@
         .social-icons a:hover::before {
             transform: scaleX(1);
         }
+    </style>
+    <script>
+        // Fungsi untuk mengelola tema gelap
+        function setupDarkMode() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Cek apakah ada preferensi tema di localStorage
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Tentukan tema awal
+            const initialTheme = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+            
+            // Terapkan tema awal
+            if (initialTheme) {
+                body.classList.add('dark-mode');
+                if (themeToggle) themeToggle.checked = true;
+            }
+            
+            // Event listener untuk toggle
+            if (themeToggle) {
+                themeToggle.addEventListener('change', function() {
+                    if (this.checked) {
+                        body.classList.add('dark-mode');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        body.classList.remove('dark-mode');
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+            }
+            
+            // Dengarkan perubahan preferensi sistem
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!localStorage.getItem('theme')) {
+                    if (e.matches) {
+                        body.classList.add('dark-mode');
+                        if (themeToggle) themeToggle.checked = true;
+                    } else {
+                        body.classList.remove('dark-mode');
+                        if (themeToggle) themeToggle.checked = false;
+                    }
+                }
+            });
+        }
+        
+        // Panggil fungsi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', setupDarkMode);
+    </script>
 
         /* WHATSAPP FLOATING BUTTON */
         .whatsapp-float {
