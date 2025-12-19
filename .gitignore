@@ -1,8 +1,4 @@
 ```html
-<!-- No build artifacts, dependencies, or temporary files detected in changes -->
-<!-- Only HTML source files were modified -->
+<!-- No build artifacts, dependencies, or temp files detected in changes -->
+<!-- Source files only (.html) - no ignores needed -->
 ```
-
-Wait, let me reconsider this. The input shows only HTML files were modified (`pages/kebijakan.html`, `pages/paket-natal.html`), which are source files. According to rule #6, if the changes contain only source/config files and no build artifacts, dependencies, or temp files, I should output an empty .gitignore.
-
-(empty)
