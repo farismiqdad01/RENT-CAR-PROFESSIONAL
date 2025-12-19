@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paket Natal & Tahun Baru - Rental Mobil Medan - Rent Car Professional</title>
+    <title>Paket Natal & Tahun Baru - RENT CAR PROFESSIONAL</title> <!-- Judul halaman diubah -->
     <style>
         * {
             margin: 0;
@@ -157,63 +157,116 @@
             opacity: 0.95;
         }
 
-        /* DAFTAR MOBIL */
-        .container {
+        /* TABEL MOBIL */
+        .table-container {
             max-width: 1200px;
             margin: -30px auto 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            overflow-x: auto;
             padding: 0 20px;
         }
 
-        .car-card {
+        .car-table {
+            width: 100%;
+            border-collapse: collapse;
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: none;
         }
 
-        .car-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
-
-        .car-image {
-            width: 100%;
-            height: 220px;
-            object-fit: contain;
-            background: #f8f9fa;
-            padding: 20px;
+        .car-table th,
+        .car-table td {
+            padding: 15px;
+            text-align: left;
             border-bottom: 1px solid #eee;
         }
 
-        .car-info {
-            padding: 20px;
+        .car-table th {
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+            text-align: center;
         }
 
-        .car-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 8px;
+        .car-table tr:nth-child(even) {
+            background: #f8f9fa;
         }
 
-        .car-price {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #e74c3c;
-            margin: 12px 0;
+        .car-table tr:hover {
+            background: #e3f2fd;
         }
 
-        .car-duration {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            text-align: right;
-            margin-top: 8px;
-            font-weight: 500;
+        .table-car-image {
+            width: 100px;
+            height: 60px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .car-table .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .car-table .btn-telepon {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .car-table .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .car-table .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .car-table td {
+            vertical-align: middle;
+        }
+
+        .car-table td:first-child,
+        .car-table th:first-child {
+            text-align: center;
+            width: 50px;
+        }
+
+        .car-table td:nth-child(3),
+        .car-table th:nth-child(3) {
+            text-align: center;
+            width: 120px;
+        }
+
+        .car-table td:nth-child(4),
+        .car-table th:nth-child(4) {
+            text-align: center;
+            width: 120px;
+        }
+
+        .car-table td:nth-child(5),
+        .car-table th:nth-child(5) {
+            text-align: center;
+            width: 80px;
+        }
+
+        .car-table td:last-child,
+        .car-table th:last-child {
+            text-align: center;
+            width: 180px;
         }
 
         .buttons {
@@ -251,10 +304,38 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
+        /* CATATAN TAMBAHAN */
+        .catatan {
+            max-width: 1200px;
+            margin: 20px auto 30px; /* Margin atas dan bawah ditambahkan */
+            padding: 30px;
+            background: #fff8e1; /* Warna kuning muda untuk highlight */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #ffc107; /* Garis kiri kuning */
+        }
+
+        .catatan h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .catatan ul {
+            padding-left: 20px;
+        }
+
+        .catatan li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
         /* FOOTER INFORMASI */
         .footer {
             max-width: 1200px;
-            margin: 40px auto 0;
+            margin: 0 auto 40px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -416,6 +497,10 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 20px;
             }
+            .catatan {
+                margin: 20px auto 30px;
+                padding: 25px 20px;
+            }
             .footer {
                 grid-template-columns: 1fr;
                 padding: 30px 20px;
@@ -450,17 +535,17 @@
         <a href="../index.html" class="nav-link">Beranda</a>
         <a href="harga-all-in.html" class="nav-link">Harga All-In</a>
         <a href="paket-lebaran.html" class="nav-link">Paket Lebaran</a>
-        <a href="paket-natal.html" class="nav-link">Paket Natal & Tahun Baru</a>
+        <a href="paket-natal.html" class="nav-link active">Paket Natal & Tahun Baru</a> <!-- Ditandai aktif -->
         <a href="kebijakan.html" class="nav-link">Kebijakan</a>
     </div>
 </div>
 
 <!-- HEADER DESKRIPSI -->
 <div class="header">
-    <h1>Paket Natal & Tahun Baru Rental Mobil</h1>
-    <h2>RENT CAR PROFESSIONAL</h2>
+    <h1>Paket Natal & Tahun Baru - RENT CAR PROFESSIONAL</h1> <!-- Judul utama diubah -->
+    <h2>Harga khusus Natal & Tahun Baru ( Minimal pemakaian 7 hari )</h2> <!-- Subjudul ditambahkan -->
     <p>
-        Rayakan Natal dan Tahun Baru dengan keluarga menggunakan layanan rental mobil spesial kami. 
+        Rayakan Natal dan Tahun Baru dengan keluarga menggunakan layanan rental mobil spesial kami.
         Dapatkan harga terbaik dan pelayanan eksklusif selama masa liburan Natal dan Tahun Baru.
     </p>
 </div>
@@ -469,165 +554,136 @@
 <div class="table-container">
     <table class="car-table">
         <thead>
-            <tr>
-                <th>No</th>
-                <th>Jenis Mobil</th>
-                <th>Harga Mobil</th>
-                <th>Harga Mobil + Supir</th>
-            </tr>
+        <tr>
+            <th>No</th>
+            <th>Jenis Mobil</th>
+            <th>Harga Mobil</th>
+            <th>Harga Mobil + Supir</th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Datsun Mt</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
+        <tr>
+            <td>1</td>
+            <td>Datsun Mt</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Ayla Mt</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Ayla At</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Calya Mt</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Calya At</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Avanza Mt</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Avanza At</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Brio</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Wuling Confero</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Avanza</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Xenia</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Xenia Transmisi Otomatis</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Wuling Cortez 2022 Transmisi Otomatis</td>
+            <td>Rp. 575.000</td>
+            <td>Rp. 650.000</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Livina</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Xpander</td>
+            <td>Rp. 575.000</td>
+            <td>Rp. 650.000</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>Innova Reborn</td>
+            <td>Rp. 700.000</td>
+            <td>Rp. 800.000</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>Pajero</td>
+            <td>Rp. 1.200.000</td>
+            <td>Rp. 1.300.000</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Fortuner</td>
+            <td>Rp. 1.100.000</td>
+            <td>Rp. 1.200.000</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
-            <tr>
-                <td>2</td>
-                <td>Ayla Mt</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-
-            <tr>
-                <td>3</td>
-                <td>Ayla At</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Calya Mt</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Calya At</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Avanza Mt</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-
-            <tr>
-                <td>7</td>
-                <td>Avanza At</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-
-            <tr>
-                <td>8</td>
-                <td>Brio</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-
-            <tr>
-                <td>9</td>
-                <td>Wuling Confero</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-
-            <tr>
-                <td>10</td>
-                <td>Avanza</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-
-            <tr>
-                <td>11</td>
-                <td>Xenia</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-
-            <tr>
-                <td>12</td>
-                <td>Xenia Transmisi Otomatis</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-
-            <tr>
-                <td>13</td>
-                <td>Wuling Cortez 2022 Transmisi Otomatis</td>
-                <td>Rp. 575.000</td>
-                <td>Rp. 650.000</td>
-            </tr>
-
-            <tr>
-                <td>14</td>
-                <td>Livina</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-
-    <!-- 15. Xpander -->
-    <div class="car-card">
-        <img src="../Images/19.Xpander.png" alt="Xpander" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Xpander</div>
-            <div class="car-price">Rp. 650.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 16. Innova Reborn -->
-    <div class="car-card">
-        <img src="../Images/20.InnovaReborn.png" alt="Innova Reborn" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Innova Reborn</div>
-            <div class="car-price">Rp. 750.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 17. Pajero -->
-    <div class="car-card">
-        <img src="../Images/22.Pajero.png" alt="Pajero" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Pajero</div>
-            <div class="car-price">Rp. 1.250.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
-    <!-- 18. Fortuner -->
-    <div class="car-card">
-        <img src="../Images/23.Fortuner.png" alt="Fortuner" class="car-image">
-        <div class="car-info">
-            <div class="car-name">Fortuner</div>
-            <div class="car-price">Rp. 1.550.000</div>
-            <div class="buttons">
-                <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-            </div>
-            <div class="car-duration">Durasi 24 Jam</div>
-        </div>
-    </div>
-
+<!-- CATATAN TAMBAHAN - Sekarang ditempatkan sebelum .footer -->
+<div class="catatan">
+    <h3>Catatan</h3>
+    <ul>
+        <li>Tambahan luar kota sudah termasuk akomodasi supir.</li>
+        <li>Penggunaan sampai dengan 24 jam di setiap hari rental.</li>
+        <li>Kelebihan pemakaian di atas 24 jam dikenakan biaya overtime 10% / jam dari nilai sewa harian.</li>
+        <li>Untuk penggunaan keluar kota syarat dan ketentuan berlaku.</li>
+        <li>Harga diatas dapat berubah sesuai waktu dan musim liburan.</li>
+    </ul>
 </div>
 
 <!-- FOOTER INFORMASI -->
@@ -642,7 +698,7 @@
             <li>Kendaraan terawat dan siap tempur</li>
         </ul>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Periode Paket</h3>
         <p class="footer-text">
@@ -652,7 +708,7 @@
             Minimal pemesanan 1 minggu sebelumnya
         </p>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Jam Operasional</h3>
         <p class="footer-text">
@@ -661,7 +717,7 @@
             Pemesanan Online: 24 Jam
         </p>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Info Lainnya</h3>
         <p class="footer-text">
@@ -695,19 +751,19 @@
         // Dapatkan nama file halaman saat ini
         const path = window.location.pathname;
         const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-        
+
         const navLinks = document.querySelectorAll('.navbar-menu a');
-        
+
         navLinks.forEach(link => {
             // Dapatkan nama file dari href link
             const linkHref = link.getAttribute('href');
             const linkPath = linkHref.substring(linkHref.lastIndexOf('/') + 1);
-            
+
             // Hapus class active dari semua link
             link.classList.remove('active');
-            
+
             // Tandai link aktif berdasarkan halaman saat ini
-            if (linkPath === currentPage || 
+            if (linkPath === currentPage ||
                 (currentPage === 'index.html' && linkPath === '') ||
                 (currentPage === '' && linkPath === 'index.html')) {
                 link.classList.add('active');

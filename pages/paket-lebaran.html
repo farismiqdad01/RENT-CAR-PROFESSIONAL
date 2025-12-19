@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paket Lebaran - Rental Mobil Medan - Rent Car Professional</title>
+    <title>Paket Lebaran - RENT CAR PROFESSIONAL</title> <!-- Judul halaman diubah -->
     <style>
         * {
             margin: 0;
@@ -304,10 +304,38 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
+        /* CATATAN TAMBAHAN */
+        .catatan {
+            max-width: 1200px;
+            margin: 20px auto 30px; /* Margin atas dan bawah ditambahkan */
+            padding: 30px;
+            background: #fff8e1; /* Warna kuning muda untuk highlight */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #ffc107; /* Garis kiri kuning */
+        }
+
+        .catatan h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .catatan ul {
+            padding-left: 20px;
+        }
+
+        .catatan li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
         /* FOOTER INFORMASI */
         .footer {
             max-width: 1200px;
-            margin: 40px auto 0;
+            margin: 0 auto 40px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -469,6 +497,10 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 20px;
             }
+            .catatan {
+                margin: 20px auto 30px;
+                padding: 25px 20px;
+            }
             .footer {
                 grid-template-columns: 1fr;
                 padding: 30px 20px;
@@ -502,7 +534,7 @@
     <div class="navbar-menu">
         <a href="../index.html" class="nav-link">Beranda</a>
         <a href="harga-all-in.html" class="nav-link">Harga All-In</a>
-        <a href="paket-lebaran.html" class="nav-link">Paket Lebaran</a>
+        <a href="paket-lebaran.html" class="nav-link active">Paket Lebaran</a> <!-- Ditandai aktif -->
         <a href="paket-natal.html" class="nav-link">Paket Natal & Tahun Baru</a>
         <a href="kebijakan.html" class="nav-link">Kebijakan</a>
     </div>
@@ -510,10 +542,10 @@
 
 <!-- HEADER DESKRIPSI -->
 <div class="header">
-    <h1>Paket Lebaran Rental Mobil</h1>
-    <h2>RENT CAR PROFESSIONAL</h2>
+    <h1>Paket Lebaran - RENT CAR PROFESSIONAL</h1> <!-- Judul utama diubah -->
+    <h2>Harga khusus IDUL FITRI ( Minimal pemakaian 7 hari )</h2> <!-- Subjudul ditambahkan -->
     <p>
-        Dapatkan penawaran spesial untuk paket rental mobil selama masa liburan Lebaran. 
+        Dapatkan penawaran spesial untuk paket rental mobil selama masa liburan Lebaran.
         Ideal untuk mudik atau wisata keluarga dengan harga terjangkau dan pelayanan terbaik.
     </p>
 </div>
@@ -522,140 +554,143 @@
 <div class="table-container">
     <table class="car-table">
         <thead>
-            <tr>
-                <th>No</th>
-                <th>Jenis Mobil</th>
-                <th>Harga Mobil</th>
-                <th>Harga Mobil + Supir</th>
-            </tr>
+        <tr>
+            <th>No</th>
+            <th>Jenis Mobil</th>
+            <th>Harga Mobil</th>
+            <th>Harga Mobil + Supir</th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Datsun Mt</td>
-                <td>Rp. 425.000</td>
-                <td>Rp. 500.000</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Ayla Mt</td>
-                <td>Rp. 425.000</td>
-                <td>Rp. 500.000</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Ayla At</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Calya Mt</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>e"></td>
-                <td>Rp. 425.000</td>
-                <td>24 Jam</td>
-                <td>
-                    <a href="tel:+6281234567890" class="btn btn-telepon">Telepon</a>
-                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
-                </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Calya At</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Avanza Mt</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Avanza At</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Brio</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Wuling Confero</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Avanza</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>Xenia</td>
-                <td>Rp. 475.000</td>
-                <td>Rp. 550.000</td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>Avanza Transmisi Otomatis</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>Xenia Transmisi Otomatis</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>Wuling Cortez 2022 Transmisi Otomatis</td>
-                <td>Rp. 575.000</td>
-                <td>Rp. 650.000</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>Livina</td>
-                <td>Rp. 525.000</td>
-                <td>Rp. 600.000</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>Xpander</td>
-                <td>Rp. 575.000</td>
-                <td>Rp. 650.000</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>Innova Reborn</td>
-                <td>Rp. 700.000</td>
-                <td>Rp. 800.000</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>Pajero</td>
-                <td>Rp. 1.200.000</td>
-                <td>Rp. 1.300.000</td>
-            </tr>
-            <tr>
-                <td>19</td>
-                <td>Fortuner</td>
-                <td>Rp. 1.100.000</td>
-                <td>Rp. 1.200.000</td>
-            </tr>
+        <tr>
+            <td>1</td>
+            <td>Datsun Mt</td>
+            <td>Rp. 425.000</td>
+            <td>Rp. 500.000</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Ayla Mt</td>
+            <td>Rp. 425.000</td>
+            <td>Rp. 500.000</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Ayla At</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Calya Mt</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Calya At</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Avanza Mt</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Avanza At</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Brio</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Wuling Confero</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Avanza</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Xenia</td>
+            <td>Rp. 475.000</td>
+            <td>Rp. 550.000</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Avanza Transmisi Otomatis</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Xenia Transmisi Otomatis</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Wuling Cortez 2022 Transmisi Otomatis</td>
+            <td>Rp. 575.000</td>
+            <td>Rp. 650.000</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Livina</td>
+            <td>Rp. 525.000</td>
+            <td>Rp. 600.000</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>Xpander</td>
+            <td>Rp. 575.000</td>
+            <td>Rp. 650.000</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>Innova Reborn</td>
+            <td>Rp. 700.000</td>
+            <td>Rp. 800.000</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Pajero</td>
+            <td>Rp. 1.200.000</td>
+            <td>Rp. 1.300.000</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Fortuner</td>
+            <td>Rp. 1.100.000</td>
+            <td>Rp. 1.200.000</td>
+        </tr>
         </tbody>
     </table>
 </div>
 
-
+<!-- CATATAN TAMBAHAN - Sekarang ditempatkan sebelum .footer -->
+<div class="catatan">
+    <h3>Catatan</h3>
+    <ul>
+        <li>Tambahan luar kota sudah termasuk akomodasi supir.</li>
+        <li>Penggunaan sampai dengan 24 jam di setiap hari rental.</li>
+        <li>Kelebihan pemakaian di atas 24 jam dikenakan biaya overtime 10% / jam dari nilai sewa harian.</li>
+        <li>Untuk penggunaan keluar kota syarat dan ketentuan berlaku.</li>
+        <li>Harga diatas dapat berubah sesuai waktu dan musim liburan.</li>
+    </ul>
+</div>
 
 <!-- FOOTER INFORMASI -->
 <div class="footer">
@@ -669,7 +704,7 @@
             <li>Kendaraan terawat dan bersih</li>
         </ul>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Periode Paket</h3>
         <p class="footer-text">
@@ -679,7 +714,7 @@
             Minimal pemesanan 3 hari sebelumnya
         </p>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Jam Operasional</h3>
         <p class="footer-text">
@@ -688,7 +723,7 @@
             Pemesanan Online: 24 Jam
         </p>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Info Lainnya</h3>
         <p class="footer-text">
@@ -712,7 +747,7 @@
 </div>
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-float">
+<a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-float"> <!-- Spasi di akhir URL dihapus -->
     <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -722,19 +757,19 @@
         // Dapatkan nama file halaman saat ini
         const path = window.location.pathname;
         const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-        
+
         const navLinks = document.querySelectorAll('.navbar-menu a');
-        
+
         navLinks.forEach(link => {
             // Dapatkan nama file dari href link
             const linkHref = link.getAttribute('href');
             const linkPath = linkHref.substring(linkHref.lastIndexOf('/') + 1);
-            
+
             // Hapus class active dari semua link
             link.classList.remove('active');
-            
+
             // Tandai link aktif berdasarkan halaman saat ini
-            if (linkPath === currentPage || 
+            if (linkPath === currentPage ||
                 (currentPage === 'index.html' && linkPath === '') ||
                 (currentPage === '' && linkPath === 'index.html')) {
                 link.classList.add('active');
