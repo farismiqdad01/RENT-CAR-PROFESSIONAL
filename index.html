@@ -1321,6 +1321,43 @@
         ribuan = ribuan.join('.').split('').reverse().join('');
         return 'Rp. ' + ribuan;
     }
+    
+    // Toggle Dark Mode
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    
+    // Check for saved theme preference or respect OS preference
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+        body.classList.add('dark-mode');
+        themeToggle.checked = true;
+    }
+    
+    // Toggle theme on checkbox change
+    themeToggle.addEventListener('change', function() {
+        if (this.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    
+    // Also toggle when user prefers dark scheme
+    prefersDarkScheme.addEventListener('change', function(e) {
+        if (localStorage.getItem('theme') === null) {
+            if (e.matches) {
+                body.classList.add('dark-mode');
+                themeToggle.checked = true;
+            } else {
+                body.classList.remove('dark-mode');
+                themeToggle.checked = false;
+            }
+        }
+    });
 </script>
 
 </body>
