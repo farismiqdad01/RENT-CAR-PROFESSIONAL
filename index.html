@@ -19,6 +19,192 @@
             color: #333;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ddd;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .modal-car-image {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .price-comparison {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+
+        .price-comparison h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .package-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .package-item:last-child {
+            border-bottom: none;
+        }
+
+        .package-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .package-price {
+            font-weight: 700;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        .normal-price {
+            color: #7f8c8d;
+            text-decoration: line-through;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .holiday-price {
+            color: #27ae60;
+            font-weight: 700;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .btn-modal {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            max-width: 200px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-telepon-modal {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .btn-whatsapp-modal {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-modal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .modal-footer {
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-radius: 0 0 12px 12px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* NAVBAR */
         .navbar {
             background: #ffffff;
@@ -300,30 +486,7 @@
             padding: 20px;
             border-radius: 10px;
             border-left: 5px solid #27ae60;
-        }
-
-        .statistik-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #27ae60;
             text-align: center;
-            background: #e8f5e9;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 12px 0;
-        }
-
-        .statistik-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-            font-size: 1rem;
-            padding: 5px 0;
-        }
-
-        .statistik-icon {
-            margin-right: 8px;
-            color: #27ae60;
         }
 
         /* FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) */
@@ -785,27 +948,7 @@
     <div class="footer-section">
         <h3 class="footer-title">Statistik</h3>
         <div class="statistik">
-            <div class="statistik-number">090420</div>
-            <div class="statistik-item">
-                <span class="statistik-icon">👥</span>
-                <span>Visitors today : 80</span>
-            </div>
-            <div class="statistik-item">
-                <span class="statistik-icon">🌐</span>
-                <span>Total visitors : 65673</span>
-            </div>
-            <div class="statistik-item">
-                <span class="statistik-icon">🎯</span>
-                <span>Hits today : 128</span>
-            </div>
-            <div class="statistik-item">
-                <span class="statistik-icon">📈</span>
-                <span>Total Hits : 90420</span>
-            </div>
-            <div class="statistik-item">
-                <span class="statistik-icon">🟢</span>
-                <span>Visitors Online: 1</span>
-            </div>
+            <script type="text/javascript" src="https://cdn.livetrafficfeed.com/static/static-counter/live.v2.js?ro=0&tz=Asia%2FBangkok"></script><noscript id="LTF_counter_href"><a href=" https://livetrafficfeed.com/website-counter ">Free Blog Counter</a></noscript>
         </div>
     </div>
 
@@ -822,6 +965,54 @@
         <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
     <p>© 2023 - 2024 | <a href="https://rentcarprofessional.com" style="color:#555; text-decoration:underline;">https://rentcarprofessional.com</a></p>
+</div>
+
+<!-- MODAL STRUCTURE -->
+<div id="carModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalCarName">Mobil Detail</h2>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <img id="modalCarImage" src="" alt="Car Image" class="modal-car-image">
+            <div id="modalCarDetails">
+                <h3>Detail Harga Normal</h3>
+                <div class="price-comparison">
+                    <h3>Perbandingan Paket Liburan</h3>
+                    <div class="package-item">
+                        <span class="package-name">Harga Normal (24 Jam)</span>
+                        <div class="package-price">
+                            <span id="normalPrice" class="normal-price">Rp. 500.000</span>
+                        </div>
+                    </div>
+                    <div class="package-item">
+                        <span class="package-name">Paket Lebaran</span>
+                        <div class="package-price">
+                            <span id="lebaranPrice" class="holiday-price">Rp. 600.000</span>
+                        </div>
+                    </div>
+                    <div class="package-item">
+                        <span class="package-name">Paket Natal & Tahun Baru</span>
+                        <div class="package-price">
+                            <span id="natalPrice" class="holiday-price">Rp. 650.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-buttons">
+                <a id="modalTeleponBtn" href="#" class="btn-modal btn-telepon-modal">
+                    <i class="fas fa-phone"></i> Telepon
+                </a>
+                <a id="modalWhatsappBtn" href="#" class="btn-modal btn-whatsapp-modal" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p>Durasi standar: 24 jam | Supir tersedia dengan biaya tambahan Rp 200.000/hari</p>
+        </div>
+    </div>
 </div>
 
 <!-- WHATSAPP FLOATING BUTTON -->
@@ -854,6 +1045,68 @@
             }
         });
     });
+
+    // Modal functionality
+    const modal = document.getElementById('carModal');
+    const closeBtn = document.querySelector('.close');
+    
+    // Close modal when clicking close button
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+    
+    // Close modal when clicking outside the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+    
+    // Add click event listeners to all car cards
+    const carCards = document.querySelectorAll('.car-card');
+    carCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Prevent opening modal if clicking on buttons inside the card
+            if (e.target.classList.contains('btn') || e.target.closest('.btn')) {
+                return;
+            }
+            
+            // Get car information from the clicked card
+            const carName = this.querySelector('.car-name').textContent;
+            const carPrice = this.querySelector('.car-price').textContent;
+            const carImageSrc = this.querySelector('.car-image').src;
+            const teleponLink = this.querySelector('.btn-telepon').href;
+            const whatsappLink = this.querySelector('.btn-whatsapp').href;
+            
+            // Set modal content
+            document.getElementById('modalCarName').textContent = carName;
+            document.getElementById('modalCarImage').src = carImageSrc;
+            document.getElementById('normalPrice').textContent = carPrice;
+            
+            // Calculate holiday prices (typically 10-30% higher than normal)
+            const priceValue = parseInt(carPrice.replace(/\D/g, '')); // Remove non-digit characters
+            const lebaranPrice = Math.round(priceValue * 1.2); // 20% increase for Lebaran
+            const natalPrice = Math.round(priceValue * 1.3); // 30% increase for Christmas/New Year
+            
+            document.getElementById('lebaranPrice').textContent = formatRupiah(lebaranPrice);
+            document.getElementById('natalPrice').textContent = formatRupiah(natalPrice);
+            
+            // Set contact links
+            document.getElementById('modalTeleponBtn').href = teleponLink;
+            document.getElementById('modalWhatsappBtn').href = whatsappLink;
+            
+            // Show modal
+            modal.style.display = 'block';
+        });
+    });
+    
+    // Function to format number to Rupiah currency
+    function formatRupiah(angka) {
+        const reverse = angka.toString().split('').reverse().join('');
+        let ribuan = reverse.match(/\d{1,3}/g);
+        ribuan = ribuan.join('.').split('').reverse().join('');
+        return 'Rp. ' + ribuan;
+    }
 </script>
 
 </body>
