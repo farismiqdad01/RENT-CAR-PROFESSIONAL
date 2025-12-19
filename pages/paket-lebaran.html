@@ -9,29 +9,30 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
             padding: 0;
             min-height: 100vh;
-            color: #333;
+            color: #2c3e50;
         }
 
         /* NAVBAR */
         .navbar {
-            background: #ffffff;
-            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 18px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid rgba(44, 62, 80, 0.1);
             margin-bottom: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
         .navbar-logo {
@@ -126,11 +127,11 @@
             max-width: 1200px;
             margin: 0 auto 30px;
             text-align: center;
-            padding: 50px 40px;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
         }
 
         .header h1 {
@@ -169,9 +170,40 @@
             width: 100%;
             border-collapse: collapse;
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .car-table:hover {
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .car-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .car-table td {
+            padding: 16px 15px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .car-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .car-table tr:hover td {
+            background: #f8f9ff;
+            transform: scale(1.01);
         }
 
         .car-table th,
@@ -335,15 +367,16 @@
         /* FOOTER INFORMASI */
         .footer {
             max-width: 1200px;
-            margin: 0 auto 40px;
+            margin: 40px auto 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            padding: 40px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 50px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             margin-bottom: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .footer-section {
@@ -351,13 +384,25 @@
         }
 
         .footer-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #2c3e50;
             margin-bottom: 20px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 12px;
             display: inline-block;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
         }
 
         .footer-text {
@@ -409,13 +454,14 @@
 
         /* FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) */
         .footer-bottom {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: #ecf0f1;
-            padding: 30px 0;
+            padding: 40px 0;
             text-align: center;
             margin-top: 0;
             position: relative;
             z-index: 10;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-bottom p {
