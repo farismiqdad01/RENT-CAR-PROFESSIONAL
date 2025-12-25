@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rental Mobil Medan - Rent Car Professional</title>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -11,15 +15,14 @@
             box-sizing: border-box;
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            /* background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%); Ganti gradasi ini */
+            background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 100%); /* Gradasi baru yang cozy */
             padding: 0;
             min-height: 100vh;
-            color: #333;
-            transition: background 0.3s ease;
+            color: #2c3e50; /* Warna teks utama lebih gelap */
+            transition: background 0.3s ease, color 0.3s ease;
         }
-
         /* TOGGLE SWITCH */
         .theme-toggle {
             position: relative;
@@ -28,13 +31,11 @@
             height: 34px;
             margin-left: 20px;
         }
-
         .theme-toggle input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-
         .slider {
             position: absolute;
             cursor: pointer;
@@ -46,7 +47,6 @@
             transition: .4s;
             border-radius: 34px;
         }
-
         .slider:before {
             position: absolute;
             content: "";
@@ -58,21 +58,17 @@
             transition: .4s;
             border-radius: 50%;
         }
-
         input:checked + .slider {
             background-color: #2196F3;
         }
-
         input:checked + .slider:before {
             transform: translateX(26px);
         }
-
         /* DARK MODE */
         body.dark-mode {
             background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             color: #e0e0e0;
         }
-
         /* Modal Styles */
         .modal {
             display: none;
@@ -85,9 +81,9 @@
             background-color: rgba(0, 0, 0, 0.7);
             animation: fadeIn 0.3s ease;
         }
-
         .modal-content {
-            background-color: #fff;
+            /* background-color: #fff; Ganti warna ini */
+            background-color: #fefefe; /* Warna baru untuk modal */
             margin: 5% auto;
             padding: 0;
             border-radius: 12px;
@@ -99,7 +95,9 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             animation: slideIn 0.3s ease;
         }
-
+        body.dark-mode .modal-content {
+            background-color: #2c3e50; /* Latar modal dalam mode gelap */
+        }
         .modal-header {
             background: linear-gradient(135deg, #3498db, #2c3e50);
             color: white;
@@ -109,12 +107,10 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .modal-header h2 {
             margin: 0;
             font-size: 1.8rem;
         }
-
         .close {
             color: white;
             font-size: 28px;
@@ -122,84 +118,91 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .close:hover,
         .close:focus {
             color: #ddd;
             transform: rotate(90deg);
         }
-
         .modal-body {
             padding: 25px;
         }
-
         .modal-car-image {
             width: 100%;
             height: 250px;
             object-fit: contain;
-            background: #f8f9fa;
+            /* background: #f8f9fa; Ganti warna ini */
+            background: #f0f4f8; /* Warna baru untuk gambar mobil */
             padding: 15px;
             border: 1px solid #eee;
             border-radius: 8px;
             margin-bottom: 20px;
         }
-
+        body.dark-mode .modal-car-image {
+            background: #34495e; /* Latar gambar mobil dalam mode gelap */
+            border-color: #555;
+        }
         .price-comparison {
-            background: #f8f9fa;
+            /* background: #f8f9fa; Ganti warna ini */
+            background: #f0f7ff; /* Warna baru untuk perbandingan harga */
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
             border-left: 5px solid #3498db;
         }
-
+        body.dark-mode .price-comparison {
+            background: #34495e; /* Latar perbandingan harga dalam mode gelap */
+        }
         .price-comparison h3 {
+            /* color: #2c3e50; Biarkan ini untuk mode terang */
             color: #2c3e50;
             margin-bottom: 15px;
             font-size: 1.4rem;
         }
-
+        body.dark-mode .price-comparison h3 {
+            color: #e0e0e0;
+        }
         .package-item {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #eee; /* Warna border bisa tetap lembut */
             align-items: center;
         }
-
+        body.dark-mode .package-item {
+            border-bottom-color: #555; /* Garis pemisah dalam mode gelap */
+        }
         .package-item:last-child {
             border-bottom: none;
         }
-
         .package-name {
             font-weight: 600;
+            /* color: #2c3e50; Biarkan ini untuk mode terang */
             color: #2c3e50;
         }
-
+        body.dark-mode .package-name {
+            color: #e0e0e0;
+        }
         .package-price {
             font-weight: 700;
             color: #e74c3c;
             font-size: 1.2rem;
         }
-
         .normal-price {
             color: #7f8c8d;
             text-decoration: line-through;
             font-size: 1rem;
             margin-right: 10px;
         }
-
         .holiday-price {
             color: #27ae60;
             font-weight: 700;
         }
-
         .contact-buttons {
             display: flex;
             gap: 15px;
             margin-top: 25px;
             justify-content: center;
         }
-
         .btn-modal {
             padding: 12px 25px;
             border: none;
@@ -218,47 +221,45 @@
             justify-content: center;
             gap: 8px;
         }
-
         .btn-telepon-modal {
             background-color: #f39c12;
             color: white;
         }
-
         .btn-whatsapp-modal {
             background-color: #25D366;
             color: white;
         }
-
         .btn-modal:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-
         .modal-footer {
-            padding: 15px 25px;
-            background: #f8f9fa;
+            /* padding: 15px 25px; */
+            /* background: #f8f9fa; Ganti warna ini */
+            background: #f0f4f8; /* Warna baru untuk footer modal */
             border-radius: 0 0 12px 12px;
             text-align: center;
-            color: #7f8c8d;
+            color: #7f8c8d; /* Warna teks bisa tetap sama atau disesuaikan */
             font-size: 0.9rem;
         }
-
+        body.dark-mode .modal-footer {
+            background: #34495e; /* Latar footer modal dalam mode gelap */
+            color: #bdc3c7;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes slideIn {
-            from { 
+            from {
                 opacity: 0;
                 transform: translateY(-50px);
             }
-            to { 
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         /* NAVBAR */
         .navbar {
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
@@ -273,38 +274,35 @@
             top: 0;
             z-index: 100;
         }
-
         body.dark-mode .navbar {
             background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-
         .navbar-logo {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
         .navbar-logo img {
             width: 60px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .navbar-title {
             font-size: 1.6rem;
             font-weight: 700;
             color: #2c3e50;
             letter-spacing: 0.5px;
         }
-
+        body.dark-mode .navbar-title {
+            color: #e0e0e0;
+        }
         .navbar-menu {
             display: flex;
             gap: 25px;
             align-items: center;
         }
-
         .navbar-menu a {
             text-decoration: none;
             color: white;
@@ -316,44 +314,36 @@
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
         }
-
         body.dark-mode .navbar-menu a {
             color: #e0e0e0;
             background: rgba(255,255,255,0.05);
         }
-
         .navbar-menu a:hover {
             color: #ffffff;
             background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-
         body.dark-mode .navbar-menu a:hover {
             background: rgba(255,255,255,0.15);
         }
-
         .navbar-menu a.active {
             background: rgba(255,255,255,0.3);
             color: white !important;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
         }
-
         .navbar-menu a.active:hover {
             background: rgba(255,255,255,0.4);
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.25);
         }
-
         body.dark-mode .navbar-menu a.active {
             background: rgba(255,255,255,0.2);
         }
-
         body.dark-mode .navbar-menu a.active:hover {
             background: rgba(255,255,255,0.3);
         }
-
         .btn-kebijakan {
             background: #3498db;
             color: white;
@@ -365,13 +355,11 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
         }
-
         .btn-kebijakan:hover {
             background: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
         }
-
         /* HEADER DESKRIPSI */
         .header {
             max-width: 1200px;
@@ -385,12 +373,10 @@
             position: relative;
             overflow: hidden;
         }
-
         body.dark-mode .header {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
-
         .header::before {
             content: '';
             position: absolute;
@@ -401,7 +387,6 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
             transform: rotate(30deg);
         }
-
         .header h1 {
             font-size: 2.4rem;
             margin-bottom: 15px;
@@ -410,7 +395,6 @@
             position: relative;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-
         .header h2 {
             font-size: 2.8rem;
             margin: 20px 0 25px;
@@ -421,12 +405,10 @@
             text-shadow: 0 3px 15px rgba(0,0,0,0.4);
             animation: glow 2s infinite alternate;
         }
-
         @keyframes glow {
             from { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
             to { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6); }
         }
-
         .header p {
             font-size: 1.2rem;
             line-height: 1.8;
@@ -435,7 +417,6 @@
             opacity: 0.98;
             position: relative;
         }
-
         /* DAFTAR MOBIL */
         .container {
             max-width: 1200px;
@@ -445,9 +426,9 @@
             gap: 25px;
             padding: 0 20px;
         }
-
         .car-card {
-            background: rgba(255, 255, 255, 0.9);
+            /* background: rgba(255, 255, 255, 0.9); Ganti gradasi ini */
+            background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 100%); /* Gradasi baru untuk kartu mobil */
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -455,12 +436,11 @@
             border: none;
             position: relative;
             backdrop-filter: blur(10px);
+            cursor: pointer; /* Menunjukkan bahwa kartu bisa diklik */
         }
-
         body.dark-mode .car-card {
             background: rgba(40, 40, 40, 0.9);
         }
-
         .car-card::before {
             content: '';
             position: absolute;
@@ -472,49 +452,42 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         body.dark-mode .car-card::before {
             background: linear-gradient(90deg, #8e2de2, #4a00e0);
         }
-
         .car-card:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow: 0 20px 40px rgba(106, 17, 203, 0.3);
         }
-
         .car-card:hover::before {
             opacity: 1;
         }
-
         .car-image {
             width: 100%;
             height: 220px;
             object-fit: contain;
-            background: rgba(248, 249, 250, 0.8);
+            /* background: rgba(248, 249, 250, 0.8); Ganti warna ini */
+            background: #f0f4f8; /* Warna baru untuk latar gambar mobil */
             padding: 20px;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
         body.dark-mode .car-image {
             background: rgba(60, 60, 60, 0.8);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-
         .car-info {
             padding: 25px;
         }
-
         .car-name {
             font-size: 1.4rem;
             font-weight: 700;
+            /* color: #2c3e50; Biarkan ini untuk mode terang */
             color: #2c3e50;
             margin-bottom: 8px;
         }
-
         body.dark-mode .car-name {
             color: #e0e0e0;
         }
-
         .car-price {
             font-size: 1.8rem;
             font-weight: 800;
@@ -522,11 +495,9 @@
             margin: 12px 0;
             position: relative;
         }
-
         body.dark-mode .car-price {
             color: #ff6b6b;
         }
-
         .car-price::after {
             content: '';
             position: absolute;
@@ -537,25 +508,22 @@
             background: linear-gradient(90deg, #6a11cb, #2575fc);
             border-radius: 2px;
         }
-
         body.dark-mode .car-price::after {
             background: linear-gradient(90deg, #8e2de2, #4a00e0);
         }
-
         .car-duration {
             font-size: 0.9rem;
+            /* color: #7f8c8d; Biarkan ini untuk mode terang */
             color: #7f8c8d;
             text-align: right;
             margin-top: 8px;
             font-weight: 500;
         }
-
         .buttons {
             display: flex;
             gap: 10px;
             margin-top: 15px;
         }
-
         .btn {
             padding: 12px 20px;
             border: none;
@@ -571,7 +539,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .btn::before {
             content: '';
             position: absolute;
@@ -582,26 +549,21 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: 0.5s;
         }
-
         .btn:hover::before {
             left: 100%;
         }
-
         .btn-telepon {
             background: linear-gradient(135deg, #f39c12, #e67e22);
             color: white;
         }
-
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
         }
-
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
-
         /* FOOTER INFORMASI */
         .footer {
             max-width: 1200px;
@@ -610,7 +572,8 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             padding: 45px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            /* background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%); Ganti gradasi ini */
+            background: linear-gradient(135deg, #f0f7ff 0%, #f5f0ff 100%); /* Gradasi baru untuk footer */
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             margin-bottom: 40px;
@@ -618,12 +581,10 @@
             overflow: hidden;
             backdrop-filter: blur(10px);
         }
-
         body.dark-mode .footer {
             background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
-
         .footer::before {
             content: '';
             position: absolute;
@@ -634,16 +595,15 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
             transform: rotate(30deg);
         }
-
         .footer-section {
             padding: 20px;
             position: relative;
             z-index: 1;
         }
-
         .footer-title {
             font-size: 1.5rem;
             font-weight: 700;
+            /* color: #2c3e50; Biarkan ini untuk mode terang */
             color: #2c3e50;
             margin-bottom: 25px;
             border-bottom: 3px solid #6a11cb;
@@ -651,12 +611,10 @@
             display: inline-block;
             position: relative;
         }
-
         body.dark-mode .footer-title {
             color: #e0e0e0;
             border-bottom: 3px solid #8e2de2;
         }
-
         .footer-title::after {
             content: '';
             position: absolute;
@@ -667,35 +625,37 @@
             background: linear-gradient(90deg, #6a11cb, #2575fc);
             border-radius: 3px;
         }
-
         body.dark-mode .footer-title::after {
             background: linear-gradient(90deg, #8e2de2, #4a00e0);
         }
-
         .footer-text {
             line-height: 1.7;
-            color: #555;
+            /* color: #555; Ganti warna ini */
+            color: #34495e; /* Warna teks footer lebih gelap */
             font-size: 1rem;
         }
-
+        body.dark-mode .footer-text {
+            color: #bdc3c7; /* Warna teks footer dalam mode gelap */
+        }
         .footer-text ul {
             padding-left: 20px;
             margin-top: 10px;
         }
-
         .footer-text li {
             margin-bottom: 8px;
             padding-left: 10px;
         }
-
         .statistik {
-            background: #f8f9fa;
+            /* background: #f8f9fa; Ganti warna ini */
+            background: #f0f7ff; /* Warna baru untuk bagian statistik */
             padding: 20px;
             border-radius: 10px;
             border-left: 5px solid #27ae60;
             text-align: center;
         }
-
+        body.dark-mode .statistik {
+            background: #34495e; /* Latar statistik dalam mode gelap */
+        }
         /* FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) */
         .footer-bottom {
             background: linear-gradient(135deg, #2c3e50, #34495e);
@@ -707,30 +667,27 @@
             z-index: 10;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
-
         .footer-bottom p {
             font-size: 0.95rem;
-            color: #bdc3c7;
+            /* color: #bdc3c7; Biarkan ini untuk mode terang */
+            color: #8a9ca9; /* Sedikit lebih gelap untuk kontras lebih baik */
             margin: 8px 0;
         }
-
         .social-icons {
             margin: 15px 0;
         }
-
         .social-icons a {
             margin: 0 12px;
             font-size: 1.5rem;
-            color: #3498db;
+            /* color: #3498db; Biarkan ini untuk mode terang */
+            color: #2980b9; /* Sedikit lebih gelap */
             text-decoration: none;
             transition: all 0.3s ease;
         }
-
         .social-icons a:hover {
             color: #ecf0f1;
             transform: translateY(-3px);
         }
-
         /* WHATSAPP FLOATING BUTTON */
         .whatsapp-float {
             position: fixed;
@@ -749,16 +706,13 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-
         .whatsapp-float:hover {
             transform: scale(1.1) rotate(10deg);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
-
         .whatsapp-float i {
             font-size: 1.8rem;
         }
-
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -806,13 +760,8 @@
             }
         }
     </style>
-    <!-- Google Fonts Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome untuk ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
 <!-- NAVBAR -->
 <div class="navbar">
     <div class="navbar-logo">
@@ -832,7 +781,6 @@
         </label>
     </div>
 </div>
-
 <!-- HEADER DESKRIPSI -->
 <div class="header">
     <h1>Rental Mobil Medan, Sewa Mobil Medan, Rent Car Medan</h1>
@@ -843,12 +791,10 @@
         Anda bisa gunakan jasa sewa mobil kami untuk jalan-jalan keliling kota Medan (City Tour), Perjalanan Dinas, Tamasya/Wisata dan Acara Keluarga.
     </p>
 </div>
-
 <!-- DAFTAR MOBIL -->
 <div class="container">
-
     <!-- 1. Datsun Mt -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Datsun Mt" data-car-price="450000" data-car-image="Images/1.DatsunMt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/1.DatsunMt.png" alt="Datsun Mt" class="car-image">
         <div class="car-info">
             <div class="car-name">Datsun Mt</div>
@@ -860,9 +806,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 2. Ayla Mt -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Ayla Mt" data-car-price="450000" data-car-image="Images/2.AylaMt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/2.AylaMt.png" alt="Ayla Mt" class="car-image">
         <div class="car-info">
             <div class="car-name">Ayla Mt</div>
@@ -874,9 +819,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 3. Ayla At -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Ayla At" data-car-price="500000" data-car-image="Images/3.AylaAt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/3.AylaAt.png" alt="Ayla At" class="car-image">
         <div class="car-info">
             <div class="car-name">Ayla At</div>
@@ -888,9 +832,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 4. Calya Mt -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Calya Mt" data-car-price="450000" data-car-image="Images/4.CalyaMt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/4.CalyaMt.png" alt="Calya Mt" class="car-image">
         <div class="car-info">
             <div class="car-name">Calya Mt</div>
@@ -902,9 +845,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 5. Calya At -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Calya At" data-car-price="500000" data-car-image="Images/5.CalyaAt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/5.CalyaAt.png" alt="Calya At" class="car-image">
         <div class="car-info">
             <div class="car-name">Calya At</div>
@@ -916,9 +858,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 6. Avanza Mt -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Avanza Mt" data-car-price="500000" data-car-image="Images/6.AvanzaMt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/6.AvanzaMt.png" alt="Avanza Mt" class="car-image">
         <div class="car-info">
             <div class="car-name">Avanza Mt</div>
@@ -930,9 +871,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 7. Avanza At -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Avanza At" data-car-price="550000" data-car-image="Images/7.AvanzaAt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/7.AvanzaAt.png" alt="Avanza At" class="car-image">
         <div class="car-info">
             <div class="car-name">Avanza At</div>
@@ -944,9 +884,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 8. Brio -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Brio" data-car-price="400000" data-car-image="Images/9.Brio.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/9.Brio.png" alt="Brio" class="car-image">
         <div class="car-info">
             <div class="car-name">Brio</div>
@@ -958,9 +897,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 9. Wuling Mt -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Wuling Mt" data-car-price="450000" data-car-image="Images/10.WulingMt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/10.WulingMt.png" alt="Wuling Mt" class="car-image">
         <div class="car-info">
             <div class="car-name">Wuling Mt</div>
@@ -972,9 +910,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 10. Avanza -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Avanza" data-car-price="500000" data-car-image="Images/12.Avanza.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/12.Avanza.png" alt="Avanza" class="car-image">
         <div class="car-info">
             <div class="car-name">Avanza</div>
@@ -986,9 +923,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 11. Xenia -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Xenia" data-car-price="450000" data-car-image="Images/13.XeniaMt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/13.XeniaMt.png" alt="Xenia" class="car-image">
         <div class="car-info">
             <div class="car-name">Xenia</div>
@@ -1000,9 +936,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 12. Avanza At (versi lain) -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Avanza At" data-car-price="550000" data-car-image="Images/15.AvanzaAt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/15.AvanzaAt.png" alt="Avanza At" class="car-image">
         <div class="car-info">
             <div class="car-name">Avanza At</div>
@@ -1014,9 +949,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 13. Xenia At -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Xenia At" data-car-price="500000" data-car-image="Images/16.XeniaAt.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/16.XeniaAt.png" alt="Xenia At" class="car-image">
         <div class="car-info">
             <div class="car-name">Xenia At</div>
@@ -1028,9 +962,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 14. Wuling Cortez 2022 At -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Wuling Cortez 2022 At" data-car-price="600000" data-car-image="Images/17.WulingCortez2022At.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/17.WulingCortez2022At.png" alt="Wuling Cortez 2022 At" class="car-image">
         <div class="car-info">
             <div class="car-name">Wuling Cortez 2022 At</div>
@@ -1042,9 +975,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 15. Livina -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Livina" data-car-price="500000" data-car-image="Images/18.Livina.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/18.Livina.png" alt="Livina" class="car-image">
         <div class="car-info">
             <div class="car-name">Livina</div>
@@ -1056,9 +988,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 16. Xpander -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Xpander" data-car-price="550000" data-car-image="Images/19.Xpander.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/19.Xpander.png" alt="Xpander" class="car-image">
         <div class="car-info">
             <div class="car-name">Xpander</div>
@@ -1070,9 +1001,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 17. Innova Reborn -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Innova Reborn" data-car-price="650000" data-car-image="Images/20.InnovaReborn.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/20.InnovaReborn.png" alt="Innova Reborn" class="car-image">
         <div class="car-info">
             <div class="car-name">Innova Reborn</div>
@@ -1084,9 +1014,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 18. Innova Reborn (versi lain) -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Innova Reborn" data-car-price="650000" data-car-image="Images/21.InnovaReborn.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/21.InnovaReborn.png" alt="Innova Reborn" class="car-image">
         <div class="car-info">
             <div class="car-name">Innova Reborn</div>
@@ -1098,9 +1027,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 19. Pajero -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Pajero" data-car-price="700000" data-car-image="Images/22.Pajero.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/22.Pajero.png" alt="Pajero" class="car-image">
         <div class="car-info">
             <div class="car-name">Pajero</div>
@@ -1112,9 +1040,8 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
     <!-- 20. Fortuner -->
-    <div class="car-card">
+    <div class="car-card" data-car-name="Fortuner" data-car-price="800000" data-car-image="Images/23.Fortuner.png" data-telepon="tel:+6281234567890" data-whatsapp="https://wa.me/6281234567890">
         <img src="Images/23.Fortuner.png" alt="Fortuner" class="car-image">
         <div class="car-info">
             <div class="car-name">Fortuner</div>
@@ -1126,12 +1053,9 @@
             <div class="car-duration">Durasi 24 Jam</div>
         </div>
     </div>
-
 </div>
-
 <!-- FOOTER INFORMASI -->
 <div class="footer">
-
     <!-- CATATAN -->
     <div class="footer-section">
         <h3 class="footer-title">Catatan</h3>
@@ -1146,7 +1070,6 @@
             </ul>
         </div>
     </div>
-
     <!-- ALAMAT -->
     <div class="footer-section">
         <h3 class="footer-title">Alamat</h3>
@@ -1157,7 +1080,6 @@
             <strong>e-mail:</strong> rcpmedan@gmail.com
         </div>
     </div>
-
     <!-- STATISTIK -->
     <div class="footer-section">
         <h3 class="footer-title">Statistik</h3>
@@ -1165,9 +1087,7 @@
             <script type="text/javascript" src="https://cdn.livetrafficfeed.com/static/static-counter/live.v2.js?ro=0&tz=Asia%2FBangkok"></script><noscript id="LTF_counter_href"><a href=" https://livetrafficfeed.com/website-counter ">Free Blog Counter</a></noscript>
         </div>
     </div>
-
 </div>
-
 <!-- FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) -->
 <div class="footer-bottom">
     <p><strong>Ikuti kami:</strong></p>
@@ -1178,9 +1098,8 @@
         <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
-    <p>© 2023 - 2024 | <a href="https://rentcarprofessional.com" style="color:#555; text-decoration:underline;">https://rentcarprofessional.com</a></p>
+    <p>© 2023 - 2025 | <a href="https://rentcarprofessional.com" style="color:#555; text-decoration:underline;" target="_blank">https://rentcarprofessional.com</a></p>
 </div>
-
 <!-- MODAL STRUCTURE -->
 <div id="carModal" class="modal">
     <div class="modal-content">
@@ -1228,137 +1147,128 @@
         </div>
     </div>
 </div>
-
 <!-- WHATSAPP FLOATING BUTTON -->
 <a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
-
 <script>
     // Fungsi untuk menandai menu aktif
     document.addEventListener('DOMContentLoaded', function() {
         // Dapatkan nama file halaman saat ini
         const path = window.location.pathname;
         const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-        
         const navLinks = document.querySelectorAll('.navbar-menu a');
-        
         navLinks.forEach(link => {
             // Dapatkan nama file dari href link
             const linkHref = link.getAttribute('href');
             const linkPath = linkHref.substring(linkHref.lastIndexOf('/') + 1);
-            
             // Hapus class active dari semua link
             link.classList.remove('active');
-            
             // Tandai link aktif berdasarkan halaman saat ini
-            if (linkPath === currentPage || 
+            if (linkPath === currentPage ||
                 (currentPage === 'index.html' && linkPath === '') ||
                 (currentPage === '' && linkPath === 'index.html')) {
                 link.classList.add('active');
             }
         });
-    });
 
-    // Modal functionality
-    const modal = document.getElementById('carModal');
-    const closeBtn = document.querySelector('.close');
-    
-    // Close modal when clicking close button
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
-    
-    // Close modal when clicking outside the modal
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        // Modal functionality
+        const modal = document.getElementById('carModal');
+        const closeBtn = document.querySelector('.close');
+
+        // Close modal when clicking close button
+        closeBtn.onclick = function() {
             modal.style.display = 'none';
         }
-    }
-    
-    // Add click event listeners to all car cards
-    const carCards = document.querySelectorAll('.car-card');
-    carCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            // Prevent opening modal if clicking on buttons inside the card
-            if (e.target.classList.contains('btn') || e.target.closest('.btn')) {
-                return;
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
             }
-            
-            // Get car information from the clicked card
-            const carName = this.querySelector('.car-name').textContent;
-            const carPrice = this.querySelector('.car-price').textContent;
-            const carImageSrc = this.querySelector('.car-image').src;
-            const teleponLink = this.querySelector('.btn-telepon').href;
-            const whatsappLink = this.querySelector('.btn-whatsapp').href;
-            
-            // Set modal content
-            document.getElementById('modalCarName').textContent = carName;
-            document.getElementById('modalCarImage').src = carImageSrc;
-            document.getElementById('normalPrice').textContent = carPrice;
-            
-            // Calculate holiday prices (typically 10-30% higher than normal)
-            const priceValue = parseInt(carPrice.replace(/\D/g, '')); // Remove non-digit characters
-            const lebaranPrice = Math.round(priceValue * 1.2); // 20% increase for Lebaran
-            const natalPrice = Math.round(priceValue * 1.3); // 30% increase for Christmas/New Year
-            
-            document.getElementById('lebaranPrice').textContent = formatRupiah(lebaranPrice);
-            document.getElementById('natalPrice').textContent = formatRupiah(natalPrice);
-            
-            // Set contact links
-            document.getElementById('modalTeleponBtn').href = teleponLink;
-            document.getElementById('modalWhatsappBtn').href = whatsappLink;
-            
-            // Show modal
-            modal.style.display = 'block';
-        });
-    });
-    
-    // Function to format number to Rupiah currency
-    function formatRupiah(angka) {
-        const reverse = angka.toString().split('').reverse().join('');
-        let ribuan = reverse.match(/\d{1,3}/g);
-        ribuan = ribuan.join('.').split('').reverse().join('');
-        return 'Rp. ' + ribuan;
-    }
-    
-    // Toggle Dark Mode
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    
-    // Check for saved theme preference or respect OS preference
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-        body.classList.add('dark-mode');
-        themeToggle.checked = true;
-    }
-    
-    // Toggle theme on checkbox change
-    themeToggle.addEventListener('change', function() {
-        if (this.checked) {
-            body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
         }
-    });
-    
-    // Also toggle when user prefers dark scheme
-    prefersDarkScheme.addEventListener('change', function(e) {
-        if (localStorage.getItem('theme') === null) {
-            if (e.matches) {
+
+        // Add click event listeners to all car cards
+        const carCards = document.querySelectorAll('.car-card');
+        carCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Prevent opening modal if clicking on buttons inside the card
+                if (e.target.classList.contains('btn') || e.target.closest('.btn')) {
+                    return;
+                }
+                // Get car information from the clicked card using dataset
+                const carName = this.dataset.carName;
+                const carPriceNum = parseInt(this.dataset.carPrice); // Ambil harga dalam bentuk angka
+                const carImageSrc = this.dataset.carImage;
+                const teleponLink = this.dataset.telepon;
+                const whatsappLink = this.dataset.whatsapp;
+
+                // Set modal content
+                document.getElementById('modalCarName').textContent = carName;
+                document.getElementById('modalCarImage').src = carImageSrc;
+                const formattedNormalPrice = formatRupiah(carPriceNum);
+                document.getElementById('normalPrice').textContent = formattedNormalPrice;
+
+                // Calculate holiday prices (typically 10-30% higher than normal)
+                const lebaranPrice = Math.round(carPriceNum * 1.2); // 20% increase for Lebaran
+                const natalPrice = Math.round(carPriceNum * 1.3); // 30% increase for Christmas/New Year
+                document.getElementById('lebaranPrice').textContent = formatRupiah(lebaranPrice);
+                document.getElementById('natalPrice').textContent = formatRupiah(natalPrice);
+
+                // Set contact links
+                document.getElementById('modalTeleponBtn').href = teleponLink;
+                document.getElementById('modalWhatsappBtn').href = whatsappLink;
+
+                // Show modal
+                modal.style.display = 'block';
+            });
+        });
+
+        // Function to format number to Rupiah currency
+        function formatRupiah(angka) {
+            const reverse = angka.toString().split('').reverse().join('');
+            let ribuan = reverse.match(/\d{1,3}/g);
+            ribuan = ribuan.join('.').split('').reverse().join('');
+            return 'Rp. ' + ribuan;
+        }
+
+        // Toggle Dark Mode
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or respect OS preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            body.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
+
+        // Toggle theme on checkbox change
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
                 body.classList.add('dark-mode');
-                themeToggle.checked = true;
+                localStorage.setItem('theme', 'dark');
             } else {
                 body.classList.remove('dark-mode');
-                themeToggle.checked = false;
+                localStorage.setItem('theme', 'light');
             }
-        }
-    });
-</script>
+        });
 
+        // Also toggle when user prefers dark scheme
+        prefersDarkScheme.addEventListener('change', function(e) {
+            if (localStorage.getItem('theme') === null) {
+                if (e.matches) {
+                    body.classList.add('dark-mode');
+                    themeToggle.checked = true;
+                } else {
+                    body.classList.remove('dark-mode');
+                    themeToggle.checked = false;
+                }
+            }
+        });
+    }); // End of DOMContentLoaded listener
+
+</script>
 </body>
 </html>

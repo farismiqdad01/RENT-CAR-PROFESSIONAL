@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kebijakan - Rental Mobil Medan - Rent Car Professional</title>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -17,7 +21,7 @@
             padding: 0;
             min-height: 100vh;
             color: #333;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease; /* Tambahkan transisi warna teks */
         }
 
         /* DARK MODE */
@@ -111,6 +115,10 @@
             font-weight: 700;
             color: #2c3e50;
             letter-spacing: 0.5px;
+        }
+
+        body.dark-mode .navbar-title {
+            color: #e0e0e0; /* Warna judul navbar untuk mode gelap */
         }
 
         .navbar-menu {
@@ -329,12 +337,12 @@
 
         .kebijakan-content {
             line-height: 1.9;
-            color: #333;
+            color: #333; /* Warna teks isi kebijakan default */
             font-size: 1.1rem;
         }
 
         body.dark-mode .kebijakan-content {
-            color: #e0e0e0;
+            color: #e0e0e0; /* Warna teks isi kebijakan untuk mode gelap */
         }
 
         .kebijakan-content p {
@@ -474,24 +482,30 @@
 
         /* FOOTER BAWAH (IKUTI KAMI + COPYRIGHT) */
         .footer-bottom {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #2c3e50, #34495e); /* Ganti ke gradien konsisten */
             color: #ecf0f1;
             padding: 40px 0;
             text-align: center;
             margin-top: 0;
             position: relative;
             z-index: 10;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255,255,255,0.1); /* Border konsisten */
         }
 
         body.dark-mode .footer-bottom {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%);
+            /* Bisa gunakan gradien yang berbeda jika diinginkan */
+            /* background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%); */
+            /* border-top: 1px solid rgba(255,255,255,0.05); */
         }
 
         .footer-bottom p {
             font-size: 1rem;
-            color: #e0e0e0;
+            color: #bdc3c7; /* Warna teks default footer bawah */
             margin: 10px 0;
+        }
+
+        body.dark-mode .footer-bottom p {
+            color: #bdc3c7; /* Warna teks footer bawah untuk mode gelap */
         }
 
         .social-icons {
@@ -501,7 +515,7 @@
         .social-icons a {
             margin: 0 15px;
             font-size: 1.8rem;
-            color: #ffffff;
+            color: #3498db; /* Warna ikon default */
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
@@ -520,69 +534,23 @@
             transition: transform 0.3s ease;
         }
 
+        body.dark-mode .social-icons a {
+            color: #bdc3c7; /* Warna ikon untuk mode gelap */
+        }
+
         body.dark-mode .social-icons a::before {
-            background: linear-gradient(90deg, #8e2de2, #4a00e0);
+            background: linear-gradient(90deg, #8e2de2, #4a00e0); /* Gradien border untuk mode gelap */
         }
 
         .social-icons a:hover {
-            color: #ffffff;
+            color: #ecf0f1; /* Warna ikon saat hover */
             transform: translateY(-5px) scale(1.1);
-            text-shadow: 0 0 15px rgba(255,255,255,0.5);
+            text-shadow: 0 0 15px rgba(255,255,255, 0.5); /* Efek glow saat hover */
         }
 
         .social-icons a:hover::before {
             transform: scaleX(1);
         }
-    </style>
-    <script>
-        // Fungsi untuk mengelola tema gelap
-        function setupDarkMode() {
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            
-            // Cek apakah ada preferensi tema di localStorage
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            // Tentukan tema awal
-            const initialTheme = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
-            
-            // Terapkan tema awal
-            if (initialTheme) {
-                body.classList.add('dark-mode');
-                if (themeToggle) themeToggle.checked = true;
-            }
-            
-            // Event listener untuk toggle
-            if (themeToggle) {
-                themeToggle.addEventListener('change', function() {
-                    if (this.checked) {
-                        body.classList.add('dark-mode');
-                        localStorage.setItem('theme', 'dark');
-                    } else {
-                        body.classList.remove('dark-mode');
-                        localStorage.setItem('theme', 'light');
-                    }
-                });
-            }
-            
-            // Dengarkan perubahan preferensi sistem
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-                if (!localStorage.getItem('theme')) {
-                    if (e.matches) {
-                        body.classList.add('dark-mode');
-                        if (themeToggle) themeToggle.checked = true;
-                    } else {
-                        body.classList.remove('dark-mode');
-                        if (themeToggle) themeToggle.checked = false;
-                    }
-                }
-            });
-        }
-        
-        // Panggil fungsi saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', setupDarkMode);
-    </script>
 
         /* WHATSAPP FLOATING BUTTON */
         .whatsapp-float {
@@ -666,8 +634,6 @@
             }
         }
     </style>
-    <!-- Font Awesome untuk ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -682,7 +648,7 @@
         <a href="harga-all-in.html" class="nav-link">Harga All-In</a>
         <a href="paket-lebaran.html" class="nav-link">Paket Lebaran</a>
         <a href="paket-natal.html" class="nav-link">Paket Natal & Tahun Baru</a>
-        <a href="kebijakan.html" class="nav-link">Kebijakan</a>
+        <a href="kebijakan.html" class="nav-link active">Kebijakan</a> <!-- Ditandai aktif -->
         <label class="theme-toggle">
             <input type="checkbox" id="themeToggle">
             <span class="slider"></span>
@@ -695,7 +661,7 @@
     <h1>Kebijakan Rental Mobil</h1>
     <h2>RENT CAR PROFESSIONAL</h2>
     <p>
-        Kebijakan dan ketentuan yang berlaku untuk layanan rental mobil kami. 
+        Kebijakan dan ketentuan yang berlaku untuk layanan rental mobil kami.
         Mohon dibaca dengan seksama sebelum melakukan pemesanan.
     </p>
 </div>
@@ -743,7 +709,7 @@
             <i class="fab fa-whatsapp"></i> 0812-3456-7890
         </p>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Layanan 24 Jam</h3>
         <p class="footer-text">
@@ -752,7 +718,7 @@
             <i class="fab fa-whatsapp"></i> 0812-3456-7890
         </p>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Alamat Kantor</h3>
         <p class="footer-text">
@@ -761,7 +727,7 @@
             Indonesia
         </p>
     </div>
-    
+
     <div class="footer-section">
         <h3 class="footer-title">Jam Operasional</h3>
         <p class="footer-text">
@@ -790,50 +756,55 @@
 </a>
 
 <script>
-    // Fungsi untuk menandai menu aktif
     document.addEventListener('DOMContentLoaded', function() {
-        // Dapatkan nama file halaman saat ini
+        // Fungsi untuk menandai menu aktif
         const path = window.location.pathname;
         const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-        
         const navLinks = document.querySelectorAll('.navbar-menu a');
-        
         navLinks.forEach(link => {
-            // Dapatkan nama file dari href link
             const linkHref = link.getAttribute('href');
             const linkPath = linkHref.substring(linkHref.lastIndexOf('/') + 1);
-            
-            // Hapus class active dari semua link
             link.classList.remove('active');
-            
-            // Tandai link aktif berdasarkan halaman saat ini
-            if (linkPath === currentPage || 
+            if (linkPath === currentPage ||
                 (currentPage === 'index.html' && linkPath === '') ||
                 (currentPage === '' && linkPath === 'index.html')) {
                 link.classList.add('active');
             }
         });
-        
-        // Dark mode functionality
+
+        // Toggle Dark Mode
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
-        
+
         // Check for saved theme preference or respect OS preference
-        const isDarkMode = localStorage.getItem('darkMode') === 'enabled' || 
-                          (window.matchMedia('(prefers-color-scheme: dark)').matches && localStorage.getItem('darkMode') !== 'disabled');
-        
-        if (isDarkMode) {
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
             body.classList.add('dark-mode');
             themeToggle.checked = true;
         }
-        
+
+        // Toggle theme on checkbox change
         themeToggle.addEventListener('change', function() {
             if (this.checked) {
                 body.classList.add('dark-mode');
-                localStorage.setItem('darkMode', 'enabled');
+                localStorage.setItem('theme', 'dark');
             } else {
                 body.classList.remove('dark-mode');
-                localStorage.setItem('darkMode', 'disabled');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Also toggle when user prefers dark scheme
+        prefersDarkScheme.addEventListener('change', function(e) {
+            if (localStorage.getItem('theme') === null) {
+                if (e.matches) {
+                    body.classList.add('dark-mode');
+                    themeToggle.checked = true;
+                } else {
+                    body.classList.remove('dark-mode');
+                    themeToggle.checked = false;
+                }
             }
         });
     });
